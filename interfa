@@ -1,0 +1,126 @@
+import java.util.Scanner;
+
+// Interface 1
+interface Interface1 {
+    void method1();
+    void method2();
+}
+
+// Interface 2
+interface Interface2 {
+    void method3();
+    void method4();
+}
+
+// Interface 3
+interface Interface3 {
+    void method5();
+    void method6();
+}
+
+// Interface 4
+interface Interface4 extends Interface1, Interface2, Interface3 {
+    void method7();
+}
+
+// Concrete class
+class ConcreteClass {
+
+    void concreteMethod() {
+        System.out.println("Method from Concrete Class");
+    }
+}
+
+// Implementing class
+class MyClass extends ConcreteClass implements Interface4 {
+
+    public void method1() {
+        System.out.println("Method1 from Interface1");
+    }
+
+    public void method2() {
+        System.out.println("Method2 from Interface1");
+    }
+
+    public void method3() {
+        System.out.println("Method3 from Interface2");
+    }
+
+    public void method4() {
+        System.out.println("Method4 from Interface2");
+    }
+
+    public void method5() {
+        System.out.println("Method5 from Interface3");
+    }
+
+    public void method6() {
+        System.out.println("Method6 from Interface3");
+    }
+
+    public void method7() {
+        System.out.println("Method7 from Interface4");
+    }
+}
+
+public class InterfaceProb {
+
+    static void takeInterface1(Interface1 obj) {
+        obj.method1();
+        obj.method2();
+    }
+
+    static void takeInterface2(Interface2 obj) {
+        obj.method3();
+        obj.method4();
+    }
+
+    static void takeInterface3(Interface3 obj) {
+        obj.method5();
+        obj.method6();
+    }
+
+    static void takeInterface4(Interface4 obj) {
+        obj.method7();
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        MyClass obj = new MyClass();
+
+        System.out.println("Choose Option");
+        System.out.println("1. Interface1");
+        System.out.println("2. Interface2");
+        System.out.println("3. Interface3");
+        System.out.println("4. Interface4");
+
+        System.out.print("Enter your choice: ");
+        int choice = sc.nextInt();
+
+        switch(choice) {
+
+            case 1:
+                takeInterface1(obj);
+                break;
+
+            case 2:
+                takeInterface2(obj);
+                break;
+
+            case 3:
+                takeInterface3(obj);
+                break;
+
+            case 4:
+                takeInterface4(obj);
+                break;
+
+            default:
+                System.out.println("Invalid Choice");
+        }
+
+        sc.close();
+    }
+}
