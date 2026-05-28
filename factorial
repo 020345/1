@@ -1,0 +1,37 @@
+class Factorial {
+
+    public static void main(String[] args) {
+
+        try {
+
+            int n = Integer.parseInt(args[0]);
+
+            if (n < 0) {
+                throw new IllegalArgumentException("Negative number not allowed");
+            }
+
+            int fact = 1;
+
+            for (int i = 1; i <= n; i++) {
+                fact = fact * i;
+            }
+
+            System.out.println("Factorial = " + fact);
+        }
+
+        catch (ArrayIndexOutOfBoundsException e) {
+
+            System.out.println("No command line argument provided");
+        }
+
+        catch (NumberFormatException e) {
+
+            System.out.println("Please enter an integer value");
+        }
+
+        catch (IllegalArgumentException e) {
+
+            System.out.println(e.getMessage());
+        }
+    }
+}
