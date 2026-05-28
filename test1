@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+class NonAlphabetException extends Exception {
+
+    NonAlphabetException(String message) {
+        super(message);
+    }
+}
+
+class Test1 {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int count = 0;
+
+        try {
+
+            while (true) {
+
+                System.out.print("Enter a character: ");
+                char ch = sc.next().charAt(0);
+
+                if (!Character.isLetter(ch)) {
+                    throw new NonAlphabetException("Non-alphabetic character entered");
+                }
+
+                count++;
+                System.out.println(ch + " accepted");
+            }
+        }
+
+        catch (NonAlphabetException e) {
+
+            System.out.println(e.getMessage());
+        }
+
+        finally {
+
+            System.out.println("Total alphabetic characters entered = " + count);
+        }
+    }
+}
