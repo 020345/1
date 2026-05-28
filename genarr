@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+public class GenericArrayCheck {
+
+    // Generic method to compare two arrays
+    public static <T> boolean checkArrays(T[] arr1, T[] arr2) {
+
+        if (arr1.length != arr2.length) {
+            return false;
+        }
+
+        for (int i = 0; i < arr1.length; i++) {
+            if (!arr1[i].equals(arr2[i])) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter size of arrays: ");
+        int n = sc.nextInt();
+
+        Integer[] array1 = new Integer[n];
+        Integer[] array2 = new Integer[n];
+
+        System.out.println("Enter elements of first array:");
+        for (int i = 0; i < n; i++) {
+            array1[i] = sc.nextInt();
+        }
+
+        System.out.println("Enter elements of second array:");
+        for (int i = 0; i < n; i++) {
+            array2[i] = sc.nextInt();
+        }
+
+        boolean result = checkArrays(array1, array2);
+
+        if (result) {
+            System.out.println("Both arrays are equal.");
+        } else {
+            System.out.println("Both arrays are not equal.");
+        }
+
+        sc.close();
+    }
+}
