@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+class Box {
+    int width, height, length;
+
+    // Constructor 1
+    Box(int w, int h, int l) {
+        width = w;
+        height = h;
+        length = l;
+    }
+
+    // Constructor 2 (cube)
+    Box(int side) {
+        width = height = length = side;
+    }
+
+    // Volume method
+    int volume() {
+        return width * height * length;
+    }
+
+    // Equals method
+    boolean equals(Box b) {
+        return (this.width == b.width &&
+                this.height == b.height &&
+                this.length == b.length);
+    }
+}
+
+public class BoxProgram {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter dimensions of Box 1:");
+        int w1 = sc.nextInt();
+        int h1 = sc.nextInt();
+        int l1 = sc.nextInt();
+
+        System.out.println("Enter dimensions of Box 2:");
+        int w2 = sc.nextInt();
+        int h2 = sc.nextInt();
+        int l2 = sc.nextInt();
+
+        //System.out.println("Enter side of Cube:");
+        //int side = sc.nextInt();
+
+        Box b1 = new Box(w1, h1, l1);
+        Box b2 = new Box(w2, h2, l2);
+        //Box b3 = new Box(side);
+
+        System.out.println("Volume of Box 1: " + b1.volume());
+        System.out.println("Volume of Box 2: " + b2.volume());
+        //System.out.println("Volume of Cube: " + b3.volume());
+
+        if (b1.equals(b2)) {
+            System.out.println("Boxes are identical");
+        } else {
+            System.out.println("Boxes are not identical");
+        }
+
+        sc.close();
+    }
+}
