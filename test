@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+class NoMatchFoundException extends Exception {
+
+    NoMatchFoundException(String message) {
+        super(message);
+    }
+}
+
+class Test {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();
+
+        try {
+
+            if (!str.equals("University")) {
+                throw new NoMatchFoundException("String does not match 'University'");
+            }
+
+            System.out.println("String matched successfully");
+        }
+
+        catch (NoMatchFoundException e) {
+
+            System.out.println(e.getMessage());
+        }
+    }
+}
