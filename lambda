@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+interface MaxNumber {
+    int maximum(int a, int b);
+}
+
+public class LambdaMax {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        // Taking user input
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+
+        // Lambda expression
+        MaxNumber obj = (x, y) -> (x > y) ? x : y;
+
+        int result = obj.maximum(a, b);
+
+        System.out.println("Maximum number = " + result);
+
+        sc.close();
+    }
+}
