@@ -1,0 +1,127 @@
+package Employee;
+
+import java.util.Scanner;
+
+public class Salaried {
+
+    protected String empName;
+    protected int empId;
+    protected int age;
+    protected String address;
+    protected double salary;
+    protected int yearsOfExperience;
+    protected String departmentName;
+
+    Scanner sc = new Scanner(System.in);
+
+    public void getData() {
+
+        System.out.print("Enter Employee Name: ");
+        empName = sc.nextLine();
+
+        System.out.print("Enter Employee ID: ");
+        empId = sc.nextInt();
+
+        System.out.print("Enter Age: ");
+        age = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter Address: ");
+        address = sc.nextLine();
+
+        System.out.print("Enter Salary: ");
+        salary = sc.nextDouble();
+
+        System.out.print("Enter Years of Experience: ");
+        yearsOfExperience = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter Department Name: ");
+        departmentName = sc.nextLine();
+    }
+
+    public void printData() {
+
+        System.out.println("Employee Name: " + empName);
+        System.out.println("Employee ID: " + empId);
+        System.out.println("Age: " + age);
+        System.out.println("Address: " + address);
+        System.out.println("Salary: " + salary);
+        System.out.println("Years of Experience: " + yearsOfExperience);
+        System.out.println("Department: " + departmentName);
+    }
+}
+
+
+
+
+
+
+
+
+import Employee.Salaried;
+import java.util.Scanner;
+
+public class Trainee extends Salaried {
+
+    String trainingDomain;
+    String dateOfJoining;
+    double trainingScore;
+
+    Scanner sc = new Scanner(System.in);
+
+    public void getData() {
+
+        super.getData();
+
+        System.out.print("Enter Training Domain: ");
+        trainingDomain = sc.nextLine();
+
+        System.out.print("Enter Date of Joining (yyyy): ");
+        dateOfJoining = sc.nextLine();
+
+        System.out.print("Enter Training Score: ");
+        trainingScore = sc.nextDouble();
+    }
+
+    public void printData() {
+
+        super.printData();
+
+        System.out.println("Training Domain: " + trainingDomain);
+        System.out.println("Date of Joining: " + dateOfJoining);
+        System.out.println("Training Score: " + trainingScore);
+    }
+
+    public void checkTrainee() {
+
+        int joiningYear = Integer.parseInt(dateOfJoining);
+        int currentYear = 2026;
+
+        if ((currentYear - joiningYear) > 1 && trainingScore > 80) {
+
+            System.out.println("\nEligible Trainee:");
+            System.out.println(empName);
+        }
+    }
+}
+
+
+
+
+
+public class TraineeDemo {
+
+    public static void main(String[] args) {
+
+        Trainee t = new Trainee();
+
+        t.getData();
+
+        System.out.println("\n----- DETAILS -----");
+
+        t.printData();
+
+        t.checkTrainee();
+    }
+}
